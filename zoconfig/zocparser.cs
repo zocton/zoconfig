@@ -50,6 +50,7 @@ namespace zoconfig
         {
         }
     }
+
     public struct Zobject
     {
         public Dictionary<string, object> Data { get; set; }
