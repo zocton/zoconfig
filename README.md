@@ -92,7 +92,7 @@ Colon is used to bind data to a member.
 ```
 
 ### Example File
-[template.zc](/template.zc)
+[template.zc](/zoconfig/data/template.zc)
 ```
 # orcs are strong but slow and dumb
 [orc]
