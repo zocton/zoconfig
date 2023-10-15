@@ -60,19 +60,13 @@ namespace zoconfig
             Data = new Dictionary<string, object>();
         }
 
-        public object this[string name]
-        {
-            get { return Data[name]; }
-        }
+        public object this[string name] => Data[name];
     }
 
     public class Zocstream
     {
         public Dictionary<string, Zobject>? Binds { get; set; }
-        public Zobject? this[string name]
-        {
-            get { return Binds?[name]; }
-        }
+        public Zobject? this[string name] => Binds?[name];
     }
 
     public class Zocparser
@@ -108,10 +102,8 @@ namespace zoconfig
         };
 
         Dictionary<string, Zobject> binds = new Dictionary<string, Zobject>();
-
         string? _fileData;
         public Zocstream? Stream { get; private set; }
-
         public Zobject? this[string name] => Stream?[name];
 
         private bool ValidatePath(string path)
@@ -146,6 +138,11 @@ namespace zoconfig
             return _fileData;
         }
 
+        /// <summary> 
+        /// Asynchronously retrieves zoconfig file data.
+        /// </summary>
+        /// <param name="path">The path to your *.zc file.</param>
+        /// <exception cref="ZoconfigException"/>
         public async void GetDataAsync(string path)
         {
             string? data = await LoadAsync(path);
@@ -156,6 +153,11 @@ namespace zoconfig
             Stream = Parse(data);
         }
 
+        /// <summary> 
+        /// Synchronously retrieves zoconfig file data.
+        /// </summary>
+        /// <param name="path">The path to your *.zc file.</param>
+        /// <exception cref="ZoconfigException"/>
         public void GetData(string path)
         {
             string? data = Load(path);
