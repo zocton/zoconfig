@@ -147,7 +147,7 @@ namespace zoconfig
         {
             string? data = await LoadAsync(path);
 
-            if (data == null)
+            if (data is null)
                 throw new ZoconfigException($"Could not load data {path}");
 
             Stream = Parse(data);
@@ -162,7 +162,7 @@ namespace zoconfig
         {
             string? data = Load(path);
 
-            if (data == null)
+            if (data is null)
                 throw new ZoconfigException($"Could not load data {path}");
 
             Stream = Parse(data);
@@ -225,7 +225,7 @@ namespace zoconfig
                 if (trimmed[0] == comment) continue;
 
                 // Check for the start of object scope
-                if (trimmed.Length == 1 && currentObjectName != null && trimmed[0] == scopeOpen)
+                if (trimmed.Length == 1 && currentObjectName is not null && trimmed[0] == scopeOpen)
                 {
                     isInScope = true;
                     continue;
@@ -234,7 +234,7 @@ namespace zoconfig
                 // If we are not in scope then an object definition is expected
                 if (!isInScope)
                 {
-                    if (currentObjectName != null)
+                    if (currentObjectName is not null)
                         throw new ZoconfigException("Multiple objects declared in a row.");
 
                     currentObjectName = GetObjectName(line);
@@ -265,7 +265,7 @@ namespace zoconfig
                 // Value
                 info[1] = info[1].Trim();
 
-                if (currentObjectName == null)
+                if (currentObjectName is null)
                     throw new ZoconfigException("Object is unreachable.");
 
                 binds[currentObjectName].Data.Add(GetObjectName(info[0]), GetObjectData(info[1]));
