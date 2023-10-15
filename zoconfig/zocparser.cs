@@ -1,12 +1,14 @@
-﻿namespace zoconfig
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace zoconfig
 {
     public static class ZoconfigExtensions
     {
         public static T? As<T>(this object obj)
         {
-            if (obj == null) return default(T);
+            if (obj is null) return default(T);
 
-            string value = obj.ToString();
+            string value = obj.ToString()!;
             if (typeof(T) == typeof(bool))
                 return (T)Convert.ChangeType(bool.Parse(value), typeof(T));
             if (typeof(T) == typeof(byte))
@@ -198,42 +200,6 @@
             string value = objectText.Substring(open, close - open);
 
             return value;
-        }
-
-        private T GetAs<T>(string value)
-        {
-            if (typeof(T) == typeof(bool))
-                return (T)Convert.ChangeType(bool.Parse(value), typeof(T));
-            if (typeof(T) == typeof(byte))
-                return (T)Convert.ChangeType(byte.Parse(value), typeof(T));
-            if (typeof(T) == typeof(sbyte))
-                return (T)Convert.ChangeType(sbyte.Parse(value), typeof(T));
-            if (typeof(T) == typeof(char))
-                return (T)Convert.ChangeType(char.Parse(value), typeof(T));
-            if (typeof(T) == typeof(decimal))
-                return (T)Convert.ChangeType(decimal.Parse(value), typeof(T));
-            if (typeof(T) == typeof(double))
-                return (T)Convert.ChangeType(double.Parse(value), typeof(T));
-            if (typeof(T) == typeof(float))
-                return (T)Convert.ChangeType(float.Parse(value), typeof(T));
-            if (typeof(T) == typeof(int))
-                return (T)Convert.ChangeType(int.Parse(value), typeof(T));
-            if (typeof(T) == typeof(uint))
-                return (T)Convert.ChangeType(uint.Parse(value), typeof(T));
-            if (typeof(T) == typeof(nint))
-                return (T)Convert.ChangeType(nint.Parse(value), typeof(T));
-            if (typeof(T) == typeof(nuint))
-                return (T)Convert.ChangeType(nuint.Parse(value), typeof(T));
-            if (typeof(T) == typeof(long))
-                return (T)Convert.ChangeType(long.Parse(value), typeof(T));
-            if (typeof(T) == typeof(ulong))
-                return (T)Convert.ChangeType(ulong.Parse(value), typeof(T));
-            if (typeof(T) == typeof(short))
-                return (T)Convert.ChangeType(short.Parse(value), typeof(T));
-            if (typeof(T) == typeof(ushort))
-                return (T)Convert.ChangeType(byte.Parse(value), typeof(T));
-
-            return (T)Convert.ChangeType(value, typeof(T));
         }
 
         private Zocstream Parse(string data)
