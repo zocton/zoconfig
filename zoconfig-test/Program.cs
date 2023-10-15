@@ -16,7 +16,7 @@ var elf = parser["elf"];
 var gnome = parser["gnome"];
 
 Console.Write(
-    $"{orc?["name"]} (orc){Environment.NewLine}" +
+    $"{orc?["name"]} (orc) {Environment.NewLine}" +
     $"strength {orc?["strength"].As<int>()} {Environment.NewLine}" +
     $"speed {orc?["speed"].As<float>()} {Environment.NewLine}" +
     $"intelligence {orc?["intelligence"].As<short>()} {Environment.NewLine}");
@@ -24,7 +24,7 @@ Console.Write(
 Console.WriteLine();
 
 Console.Write(
-    $"{elf?["name"]} (elf){Environment.NewLine}" +
+    $"{elf?["name"]} (elf) {Environment.NewLine}" +
     $"strength {elf?["strength"].As<int>()} {Environment.NewLine}" +
     $"speed {elf?["speed"].As<float>()} {Environment.NewLine}" +
     $"intelligence {elf?["intelligence"].As<short>()} {Environment.NewLine}");
@@ -32,7 +32,7 @@ Console.Write(
 Console.WriteLine();
 
 Console.Write(
-    $"{gnome?["name"]} (gnome){Environment.NewLine}" +
+    $"{gnome?["name"]} (gnome) {Environment.NewLine}" +
     $"strength {gnome?["strength"].As<int>()} {Environment.NewLine}" +
     $"speed {gnome?["speed"].As<float>()} {Environment.NewLine}" +
     $"intelligence {gnome?["intelligence"].As<short>()} {Environment.NewLine}");
