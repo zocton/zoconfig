@@ -42,7 +42,7 @@ There is generic typcasting for all [Built-in types](https://learn.microsoft.com
 var orcStrength = orc?["strength"].As<int>(); // returns strength as an int so orcStrength is now an int rather than an object
 ```
 >[!NOTE]
->It is recommended to use orc?["strength"].ToString() rather than orc?["strength"].As<string>() if you need or want to convert the type from object to string. This will be faster since it will not need to check if it is convertible to all the other built-in types C# offers. Realistically, this will barely touch perfomance but it's worth noting.
+>It is recommended to use orc?["strength"].ToString() rather than orc?["strength"].As\<string\>() if you need or want to convert the type from object to string. This will be faster since it will not need to check if it is convertible to all the other built-in types C# offers. Realistically, this will barely touch perfomance but it's worth noting.
 
 ### Exceptions
 We throw a _ZoconfigException_ for parsing failures. Since our datatypes are nullable we did not feel the need to implement the bloat and overhead of exception handling on subscript operator usage.
