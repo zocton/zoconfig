@@ -1,0 +1,27 @@
+# orcs are strong but slow and dumb
+[orc]
+{
+  [name] : [Thrall]
+  [strength] : [10]
+  [speed] : [5]
+  [intelligence] : [3]
+}
+
+# elves are well-rounded and smart
+[elf]
+{
+  [name] : [Legolas]
+  [strength] : [7]
+  [speed] : [7]
+  [intelligence] : [10]
+}
+
+# gnomes are small and weak but rather quick
+# they also seem to know their way around a book
+[gnome]
+{
+  [name] : [Peter D.]
+  [strength] : [5]
+  [speed] : [10]
+  [intelligence] : [8]
+}
